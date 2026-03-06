@@ -1,17 +1,25 @@
 ---
 name: ui-check
 description: >
-  Quick rendered-UI spot checks using the browser. Use when the user asks to
-  verify UI quality, check accessibility basics, or validate a component
-  before shipping. Requires browser access (Playwright, Puppeteer, or
-  browser-use). Triggers on: "check my UI", "is this accessible",
-  "verify this component", "UI quality check".
-user_invocable: true
+  Validate AI-generated UI in the browser. Rendered-output integrity checks
+  that catch what linters and code review miss. Works with any agent that
+  has browser access.
+user-invokable: true
 ---
 
-# UI Check
+# ui-check
 
-Run these quick checks in the browser console (via `page.evaluate()` or equivalent) to spot common UI issues before shipping.
+![llynt — integrity verified](https://raw.githubusercontent.com/llynt/llynt-skills/main/assets/llynt-overflow.gif)
+
+AI agents ship UI faster than anyone reviews it. Linters check source code.
+Screenshots need a human. These checks validate the actual rendered output —
+what the browser computes, not what the code says.
+
+Paste-and-run browser checks for the regressions that slip past code review.
+
+**Works with:** Claude Code · Cursor · Copilot · Windsurf · v0 · Bolt
+
+---
 
 ## 1. Tap targets too small?
 
