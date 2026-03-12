@@ -1,6 +1,6 @@
 ---
 name: browser-validate-ui
-description: Deterministically run 7 integrity checks on the rendered UI in the browser before shipping. Catches blank renders, contrast failures, undersized tap targets, horizontal overflow, broken images, text overflow, and element overlap. Returns structured JSON findings your agent can act on. Works with Playwright, Puppeteer, or any browser automation. Use when asked to validate UI, browser check, check before shipping, UI integrity check, accessibility check.
+description: Run 7 UI integrity checks on any URL. Catches blank renders, contrast failures, undersized tap targets, horizontal overflow, broken images, text overflow, and element overlap. Returns structured findings your agent can read and fix. Use when asked to validate UI, browser check, check before shipping, UI integrity check, accessibility check.
 ---
 
 # Browser Validate UI
@@ -27,39 +27,12 @@ By [llynt](https://llynt.dev) — rendered-UI integrity checks for your PR pipel
 
 ## Usage
 
-Ask your agent to "validate my UI" or "check before shipping." The skill runs automatically via browser automation and returns structured JSON your agent can act on.
-
-### Output format
-
-```json
-{
-  "tool": "llynt/browser-validate-ui",
-  "version": "0.2.0",
-  "url": "http://localhost:3000",
-  "viewport": { "width": 1366, "height": 768 },
-  "findings": [
-    {
-      "ruleId": "dom.a11y.contrast",
-      "severity": "error",
-      "element": "p.hero-text",
-      "measured": 2.1,
-      "threshold": 4.5,
-      "message": "Contrast ratio 2.1:1 below 4.5:1 minimum"
-    }
-  ],
-  "summary": { "total": 3, "errors": 1, "warnings": 2, "checksRun": 7, "checksClean": 3 }
-}
+```bash
+npx llynt check <url>
 ```
+
+No install. No account. Returns structured findings with rule IDs, measurements, and thresholds your agent can read and fix.
 
 ## Go deeper
 
-These 7 checks are single-element spot checks. The full llynt engine catches what they can't:
-
-- **Pairwise occlusion** across all elements (not just siblings)
-- **Cross-viewport drift** at 375, 768, 1024, 1440px
-- **Design token conformance** against your system
-- **Evidence packs** with full provenance
-- **SARIF output** for CI/CD integration
-- **PR gates** that block merge on regressions
-
-**Try it now:** `npx llynt check <url>` — runs instantly, no install, no account. 7 checks free, 28 with a key from [llynt.dev](https://llynt.dev).
+These 7 checks are single-element spot checks. Sign up at [llynt.dev](https://llynt.dev) for 28 rules, SARIF output, and PR gates.
