@@ -1,34 +1,38 @@
 # llynt-skills
 
-Free UI quality checks for AI coding agents. Run them in your browser before shipping.
+Rendered-UI integrity checks for AI coding agents. Measure what the browser actually computes — not what the source code says.
 
 Built by [llynt](https://llynt.dev) — UI integrity checks in your PR pipeline.
 
 ## Install
 
 ```
-npx skills add llynt/llynt-skills -a claude-code -y
+npx skills add llynt/llynt-skills
 ```
 
 ## Skills
 
-### ui-check
+### browser-validate-ui
 
-Spot-check rendered UI in the browser before you ship. Catches the stuff that slips past code review:
+Run 7 rendered-UI integrity checks in the browser before shipping. Returns structured JSON findings your agent can act on — not advice, not guidelines.
 
-- **Tap targets** — Buttons and links smaller than 44x44px (the minimum for comfortable mobile use)
-- **Horizontal overflow** — Pages that scroll sideways on mobile, usually from a fixed-width element
-- **Broken images** — `<img>` tags that failed to load (invisible if you have cached versions)
+- **Page rendered** — Catches blank pages, error states, empty renders
+- **Contrast** — Text failing WCAG AA contrast ratio
+- **Hit targets** — Interactive elements smaller than 44x44px
+- **Horizontal overflow** — Pages that scroll sideways on mobile
+- **Broken images** — `<img>` tags that failed to load
+- **Text overflow** — Content clipped by overflow:hidden containers
+- **Element overlap** — Interactive elements occluding each other
 
-Each check runs as a `page.evaluate()` snippet — works with Playwright, Puppeteer, or any browser automation your agent has access to.
+Each check runs via `page.evaluate()` — works with Playwright, Puppeteer, or any browser automation.
 
-**Usage:** Ask your agent to "check my UI" or "run a ui-check" before merging.
+**Usage:** Ask your agent to "validate my UI" or "browser check" before merging.
 
-## Why these checks?
+## How is this different?
 
-AI-generated UI code ships faster than teams can review it. These three checks catch the most common visual regressions that pass linting and type checks but break the actual rendered output.
+Most UI skills give your agent guidelines to follow. This one **measures the rendered DOM** and returns structured findings with rule IDs, measurements, and thresholds. Your agent doesn't interpret — it reads the result and fixes what failed.
 
-For deeper analysis — contrast ratios, element occlusion, cross-viewport drift, design token conformance — see [llynt.dev](https://llynt.dev).
+Want more? `npx llynt check <url>` — runs instantly, no install. 7 checks free, 28 with a key from [llynt.dev](https://llynt.dev).
 
 ## License
 
