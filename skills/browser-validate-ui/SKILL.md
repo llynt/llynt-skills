@@ -9,7 +9,7 @@ By [llynt](https://llynt.dev) — rendered-UI integrity checks for your PR pipel
 
 ![llynt detecting horizontal overflow](assets/llynt-overflow.gif)
 
-Deterministically run 7 integrity checks on the rendered UI in the browser before shipping. These checks evaluate what the browser actually computed — not what the source code says.
+7 integrity checks on the rendered DOM — computed styles, layout geometry, and accessibility properties. Measures what the browser actually computes.
 
 **Catch what code reviews miss — before your users do.**
 
@@ -27,15 +27,7 @@ Deterministically run 7 integrity checks on the rendered UI in the browser befor
 
 ## Usage
 
-Run the script via `page.evaluate()` in your browser automation:
-
-```js
-const fs = require('fs');
-const script = fs.readFileSync('scripts/browser-validate-ui.js', 'utf8');
-const results = await page.evaluate(script);
-```
-
-The script returns structured JSON. Each finding includes rule ID, severity, element, measured value, threshold, and a human-readable message. Fix what failed, re-run to verify.
+Ask your agent to "validate my UI" or "check before shipping." The skill runs automatically via browser automation and returns structured JSON your agent can act on.
 
 ### Output format
 
