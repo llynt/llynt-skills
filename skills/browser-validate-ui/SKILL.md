@@ -21,7 +21,7 @@ description: Run 7 UI integrity checks on any URL. Catches blank renders, contra
 npx llynt check <url>
 ```
 
-No install. No account. Returns structured findings with rule IDs, measurements, and thresholds your agent can read and fix.
+No install. No account. Runs a real browser (playwright) against any URL. Returns structured findings with rule IDs, measurements, and thresholds your agent can read and fix. 
 
 
 

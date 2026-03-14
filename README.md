@@ -7,12 +7,13 @@ Built by [llynt](https://llynt.dev) — catch expensive UI breakage before merge
 ## Install
 
 ```bash
-npx skills add llynt/llynt-skills -a claude-code -y
+# All agents (Claude, Cursor, Codex, etc.)
+npx skills add llynt/llynt-skills -a '*' -y
 ```
 
 ## Included Skill
 
-### `ui-check`
+### `browser-validate-ui`
 
 Runs the real hosted checker via CLI:
 
