@@ -1,6 +1,6 @@
 ---
-name: browser-validate-ui
-description: Run 7 UI integrity checks on any URL. Catches blank renders, contrast failures, undersized tap targets, horizontal overflow, broken images, text overflow, and element overlap. Returns structured findings your agent can read and fix. Use when asked to validate UI, browser check, check before shipping, UI integrity check, accessibility check.
+name: validate-ui
+description: Validate UI in the browser for layout, responsiveness, and interaction issues.
 ---
 
 
@@ -9,7 +9,7 @@ description: Run 7 UI integrity checks on any URL. Catches blank renders, contra
 # [llynt](https://llynt.dev)
 
 
-## Browser Validate UI
+## Validate UI
 
 - UI integrity checks for your PR pipeline.
 
