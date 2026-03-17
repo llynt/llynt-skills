@@ -1,5 +1,5 @@
 
-![llynt detecting horizontal overflow](skills/browser-validate-ui/assets/llynt-carousel.gif)
+![llynt detecting horizontal overflow](orig-single-logo.gif)
 
 # llynt-skills
 
